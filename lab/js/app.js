@@ -12,7 +12,7 @@ const viewed = [];
 const labels = [];
 const pics = [leftImage, centerImage, rightImage];
 const list = document.getElementById('productlist');
-const totalClicks = 0;
+let totalClicks = 0;
 const views = [];
 const votes = [];
 
@@ -36,7 +36,7 @@ function displayPics(){
     }
   }
   console.log(rando);
-  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
+  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the letiable declaration from `let to `let`.
   // PUT YOUR RESPONSE IN THIS COMMENT: makeRandom function is declared outside of the code block.
   console.log(viewed);
 
@@ -59,7 +59,7 @@ function handleClick(event) {
     showList();
     makeChart();
   }
-  for(const i = 0; i < names.length; i++){
+  for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
       console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
@@ -71,7 +71,7 @@ function handleClick(event) {
 }
 
 function showList() {
-  for(const i = 0; i < allProducts.length; i++) {
+  for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
     list.appendChild(liEl);
